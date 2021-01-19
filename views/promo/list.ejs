@@ -1,0 +1,19 @@
+<%- include('../partials/_header.ejs') %>
+    <h1>Liste des promos</h1>
+    <% if (lastViewedPromo) { %>
+    <p>
+        Dernière promo vue : 
+        <a href="/promo/<%= lastViewedPromo.id %>">
+            <%= lastViewedPromo.name %>
+        </a>
+    </p>
+    <% } %>
+    
+    <ul class="promo-list">
+        <% for (promo of promos) { %>
+            <li>
+                <a href="/promo/<%= promo.id %>"><%= promo.name %></a>
+            </li>
+        <% } %>
+    </ul>
+<%- include('../partials/_footer.ejs') %>

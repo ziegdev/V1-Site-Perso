@@ -1,0 +1,21 @@
+<%- include('../partials/_header.ejs') %>
+    <h1>Liste des étudiants</h1>
+
+    <a href="/admin/student/add">Ajouter un étudiant</a>
+    
+    <ul class="student-list">
+        <% for (student of students) { %>
+            <li>
+                <img src="<%= student.profile_picture_url %>" width="50">
+                <a href="/student/<%= student.id %>"><%= student.last_name %> <%= student.first_name %></a>
+            </li>
+        <% } %>
+    </ul>
+
+    <div class="pagination">
+        <% if(page > 1) { %>
+            <a href="/students?page=<%= page - 1%>"> ⏮ Précédent</a> - 
+        <% } %>
+        <a href="/students?page=<%= page + 1%>">Suivant ⏭</a>
+    </div>
+<%- include('../partials/_footer.ejs') %>

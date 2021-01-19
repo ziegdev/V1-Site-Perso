@@ -1,0 +1,14 @@
+<%- include('../partials/_header.ejs') %>
+
+    <h1>Promo <%= promo.name %></h1>
+
+    <ul class="student-list">
+    <% for (student of promoStudents) { %>
+        <li>
+            <img src="<%= student.profile_picture_url %>" width="50">
+            <a href="/student/<%= student.id %>"><%= student.last_name %> <%= student.first_name %></a>
+        </li>
+    <% } %>
+    </ul>
+
+<%- include('../partials/_footer.ejs') %>
